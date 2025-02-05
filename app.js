@@ -12,8 +12,7 @@ var SQLiteStore = require('connect-sqlite3')(session);
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
-var hotelsRouter = require('./routes/hotels');
-var roomsRouter = require('./routes/rooms');
+
 
 var db = require("./models");
 db.sequelize.sync({ force: false })
@@ -41,8 +40,7 @@ app.use(passport.authenticate('session'));
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/users', usersRouter);
-app.use('/hotels', hotelsRouter);
-app.use('/rooms', roomsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
