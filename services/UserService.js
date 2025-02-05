@@ -23,7 +23,17 @@ class UserService {
         })
     }
     
-
+    async getOne(userId) {        
+        return await this.User.findOne({
+            where: {id: userId},
+        });
+    }
+    async getOneByName(username) {        
+        return await this.User.findOne({
+            where: {username: username},
+            
+        });
+    }
 
     async deleteUser(userId) {
         return this.User.destroy({
